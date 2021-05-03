@@ -1,0 +1,232 @@
+@import "./variables";
+
+@mixin style {
+    color: $mainText;
+    background: $backgroundText;
+    word-spacing: -0.1em;
+    font-size: 22px;
+    line-height: 1.8em;
+    font-weight: 600;
+}
+
+@mixin size {
+    width: $size;
+    height: $size;
+}
+
+@mixin flex {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+@mixin flex_2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin flow {
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+@mixin fontstyle {
+    color: #fff;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+@mixin padding {
+    padding-top: 15px;
+    padding-left: 16px;
+}
+
+body {
+    background: $backgroundColor;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+}
+
+
+.testimonial {
+    box-shadow:  2px 3px 20px;
+    height: auto;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    margin-left: 200px;
+    width: 420px;
+    border-radius: $borderRadius;
+
+    &__top {
+        background: $backgroundText;
+        padding: 30px;
+        border-top-left-radius: $borderRadius;
+        border-top-right-radius:$borderRadius;
+    
+        & p {
+            @include style;
+            height: auto;
+            padding-bottom: 20px;
+        }
+    }
+
+    &__img {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: -62px;
+        display: block;
+    }
+    
+    &__bottom {
+        background: $backgroundFooter;
+        border-bottom-left-radius: $borderRadius;
+        border-bottom-right-radius: $borderRadius;
+        padding-bottom: 30px;
+        padding-top: 60px;
+        margin-top: -65px;
+
+        & h2 {
+            text-transform: uppercase;
+            text-align: center;
+            color: $nameText;
+            letter-spacing: 0.2em;
+        }
+
+        & h3 {
+            color: $siteText;
+            text-align: center;
+        }
+    }
+}
+
+
+.portfolio {
+    display: grid;
+    grid-template-columns: repeat(3, 300px);
+    grid-template-rows: repeat(3, 350px);
+    grid-gap: 40px;
+    margin: 50px;
+
+    &__1 {
+        @include flex_2;
+        width: 100%;
+        height: 100%;
+        position: relative;
+        background: #262646;
+        border-radius: $borderRadius;
+
+        button {
+        cursor: pointer;
+        }
+
+        a {
+            color: #000;
+            text-decoration: none;
+        }
+
+        &:hover .portfolio__1--img {
+        visibility: hidden;
+        opacity: 0;
+        }
+
+        &--img {
+            border-radius: $borderRadius;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            transition: 500ms;
+        }   
+    }   
+}
+
+    
+    
+
+@media (max-width: 768px) {
+    .portfolio {
+        grid-template-columns: repeat(2, 300px);
+        grid-template-rows: repeat(4, 350px);
+    }
+}
+
+@media (max-width: 320px) {
+    .portfolio {
+        grid-template-columns: 300px;
+        grid-template-rows: repeat(7, 350px);
+    }
+}
+
+
+
+.social-media {
+    @include flex;
+    @include flow;
+    list-style: none;
+    cursor: grab;
+    color: #fff;
+    text-decoration: underline;
+    font-size: 16px;
+    
+    
+
+        &__blog {
+        @include size;
+        @include padding;
+        box-sizing: border-box;
+        background:  #e17b77;
+        transition: $transition;
+            &:hover {
+             width: $width;
+            }
+        }
+    
+        &__facebook {
+        @include size;
+        @include padding;
+        box-sizing: border-box;
+        background: #3b5998;
+        transition: $transition;
+            &:hover {
+            width: $width;
+            }
+        }
+
+        &__twitter {
+        @include size;
+        @include padding;
+        box-sizing: border-box;
+        background: #00aced;
+        transition: $transition;
+            &:hover {
+            width: $width;
+            }
+        }
+
+        &__linkedin {
+        @include size;
+        @include padding;
+        box-sizing: border-box;
+        background: #007bb6;
+        transition: $transition;
+            &:hover {
+            width: $width;
+            }
+        }
+
+        &__github {
+        @include size;
+        @include padding;
+        box-sizing: border-box;
+        background:#000;
+        transition: $transition;
+            &:hover {
+            width: $width;
+            }
+        }
+
+    &__img {
+        height: 18px;
+        margin: auto 20px auto auto;
+        }
+}
